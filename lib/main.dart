@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:moni/screens/home_screen.dart';
-
 import 'Core/utils/moni_colors.dart';
+import 'UI/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

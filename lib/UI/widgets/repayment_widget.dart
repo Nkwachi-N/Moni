@@ -11,7 +11,7 @@ class RepaymentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4.0,horizontal: 16.0,),
+      padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 16.0,),
       decoration: BoxDecoration(
         color: const Color(0xFF090A0A),
         borderRadius: BorderRadius.circular(100.0),
@@ -20,7 +20,7 @@ class RepaymentWidget extends StatelessWidget {
         text: TextSpan(
           text: title,
           style: const TextStyle(
-            fontSize: 18.0,
+            fontSize: 15.0,
             fontWeight: FontWeight.w400,
             color: MoniColors.greyBase,
           ),
@@ -28,7 +28,7 @@ class RepaymentWidget extends StatelessWidget {
             TextSpan(
               text: subtitle,
               style: TextStyle(
-                fontSize: 18.0,
+                fontSize: 15.0,
                 fontWeight: FontWeight.w700,
                 color: color,
               ),
