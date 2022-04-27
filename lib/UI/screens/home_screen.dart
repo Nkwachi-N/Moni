@@ -136,9 +136,9 @@ class _HomeScreenState extends State<HomeScreen>
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6.0),
                             )),
-                        child: const Text(
+                        child:  Text(
                           'View Purse',
-                          style: TextStyle(
+                          style: GoogleFonts.dmSans(
                             fontSize: 14.0,
                             fontWeight: FontWeight.w400,
                             color: Colors.white,

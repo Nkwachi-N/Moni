@@ -12,7 +12,10 @@ class MoniColors{
 
   static const greenLighter = Color(0xFF7DDE86);
 
+  static const darkDark = Color(0xFF303437);
   static const greenDarkest = Color(0xFF198155);
+
+  static const greenBase = Color(0xFF23C16B);
 
   static const greyBase = Color(0xFFCDCFD0);
 
@@ -21,6 +24,10 @@ class MoniColors{
   static const primaryBrand = Color(0xFFE66652);
 
   static const grey = Color(0xFFC4C4C4);
+
+  static const greyDark = Color(0xFF979C9E);
+
+  static const greyLight = Color(0xFFE3E5E5);
 
   static const greyFive = Color(0xFFEBF1F9);
 

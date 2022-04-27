@@ -23,6 +23,17 @@ class MyApp extends StatelessWidget {
           color: MoniColors.darkDarker,
           centerTitle: true,
         ),
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            textStyle: MaterialStateProperty.all(GoogleFonts.inter(
+              fontWeight: FontWeight.w400,
+              fontSize: 15.0,
+            )),
+            foregroundColor: MaterialStateProperty.all(
+              MoniColors.primaryBrand,
+            ),
+          ),
+        ),
         textTheme: GoogleFonts.dmSansTextTheme(
           Theme.of(context).textTheme.apply(
                 bodyColor: MoniColors.textColor,
