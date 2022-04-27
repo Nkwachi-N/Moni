@@ -17,6 +17,8 @@ class MoniColors{
 
   static const greenBase = Color(0xFF23C16B);
 
+  static const secondaryBrandLightest = Color(0xFFFDF8ED);
+
   static const greyBase = Color(0xFFCDCFD0);
 
   static const secondaryBrand = Color(0xFFEAB948);
