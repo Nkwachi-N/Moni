@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:moni/Core/utils/moni_colors.dart';
 
 class MembersTile extends StatelessWidget {

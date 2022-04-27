@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moni/Core/utils/moni_colors.dart';
-import 'package:moni/UI/screens/members_screen.dart';
+import 'package:moni/UI/screens/cluster_details_screen.dart';
 import 'package:moni/UI/widgets/repayment_widget.dart';
-
-import '../widgets/members_tile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -210,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen>
             const SizedBox(
               height: 8.0,
             ),
-
+           const ClusterDetailsScreen(),
           ],
         ),
       ),

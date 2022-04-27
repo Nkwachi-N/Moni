@@ -25,15 +25,11 @@ class MyApp extends StatelessWidget {
         ),
         textTheme: GoogleFonts.dmSansTextTheme(
           Theme.of(context).textTheme.apply(
-            bodyColor: Color(0xFF13163E),
-          ), // If this is not set, then ThemeData.light().textTheme is used.
+                bodyColor: MoniColors.textColor,
+              ), // If this is not set, then ThemeData.light().textTheme is used.
         ),
-
-
       ),
-      home: const HomeScreen()
+      home: const HomeScreen(),
     );
   }
 }
-
-
