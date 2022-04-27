@@ -23,7 +23,9 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
         textTheme: GoogleFonts.dmSansTextTheme(
-          Theme.of(context).textTheme, // If this is not set, then ThemeData.light().textTheme is used.
+          Theme.of(context).textTheme.apply(
+            bodyColor: Color(0xFF13163E),
+          ), // If this is not set, then ThemeData.light().textTheme is used.
         ),
 
 

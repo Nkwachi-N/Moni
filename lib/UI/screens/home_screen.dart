@@ -1,8 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moni/Core/utils/moni_colors.dart';
+import 'package:moni/UI/screens/members_screen.dart';
 import 'package:moni/UI/widgets/repayment_widget.dart';
+
+import '../widgets/members_tile.dart';
+
+const Duration _kExpand = Duration(milliseconds: 200);
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,10 +15,10 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(),
@@ -203,7 +207,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 8.0,
+          ),
+          const MoniExpansionTile(
+            children: [
+              MembersTile(
+                title: 'Florence Tanika',
+                color: MoniColors.redDarkest,
+                subtitle: '₦10,555,000 Late loan ',
+                imagePath: 'assets/florence.png',
+                dueText: '3 days over due',
+              ),
+            ],
+          ),
         ],
       ),
     );

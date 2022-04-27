@@ -16,5 +16,11 @@ class MoniColors{
 
   static const primaryBrand = Color(0xFFE66652);
 
+  static const grey = Color(0xFFC4C4C4);
+
+  static const redDarkest =  Color(0xFFE41002);
+
+  static const textColor = Color(0xFF13163E);
+
 
 }
