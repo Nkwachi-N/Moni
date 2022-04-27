@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Moni',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           color: MoniColors.darkDarker,
