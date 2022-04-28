@@ -44,7 +44,7 @@ class _ClusterScreenState extends State<ClusterScreen> {
         body: Visibility(
           visible: clusterModel.networkSate == NetworkState.loading,
           replacement: Visibility(
-            visible: clusterModel.networkSate != NetworkState.failed,
+            visible: clusterModel.networkSate == NetworkState.failed,
             child: const FailureScreen(),
             replacement: const NoInternetScreen( ),
           ),
