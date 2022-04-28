@@ -35,7 +35,7 @@ You’ll be graded for
 |[**Intl**](https://pub.dev/packages/intl)| Currency formatting|
 |[**Flutter Svg**](https://pub.dev/packages/flutter_svg)|Displaying Svg Images|
 |[**Patterns Canvas**](https://pub.dev/packages/patterns_canvas)|Drawing patterns on widgets|
-|[**Mockito**](https://pub.dev/packages/mockito)|Generate mock classed for tests|
+|[**Mockito**](https://pub.dev/packages/mockito)|Generate mock classes for tests|
 
 ## Comments
 - The default font DM Sans does not support the Naira symbol. I used Mulish for texts that had the Naira Symbol.
