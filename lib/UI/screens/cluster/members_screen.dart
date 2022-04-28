@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moni/Core/features/loan/model/active_agent.dart';
+import 'package:moni/Core/features/loan/model/inactive_agent.dart';
+import 'package:moni/Core/features/loan/provider/loan_provider.dart';
+import 'package:moni/Core/utils/currency_format.dart';
 import 'package:moni/UI/screens/cluster/widgets/moni_expansion_tile.dart';
 import 'package:moni/UI/utils/moni_colors.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets/members_tile.dart';
 
@@ -11,6 +16,7 @@ class MembersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final clusterModel = context.watch<LoanProvider>();
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -64,7 +70,7 @@ class MembersScreen extends StatelessWidget {
               MembersTile(
                 title: const LoanTitle(
                   title: 'Eze Tarka',
-                  dueText: '3 days over due',
+                  dueText: '1 day over due',
                   dueTextColor: MoniColors.yellowDarkest,
                 ),
                 subtitle: Text(
@@ -89,22 +95,23 @@ class MembersScreen extends StatelessWidget {
           MoniExpansionTile(
             title: 'Active Loans',
             children: [
-              MembersTile(
-                title: const LoanTitle(
-                  title: 'Tiamiyu Adzan',
-                  dueText: '3 days over due',
-                  dueTextColor: MoniColors.textColor2,
-                ),
-                subtitle: Text(
-                  '₦10,555,000 Late loan',
-                  style: GoogleFonts.mulish(
-                    color: MoniColors.greenDarkest,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.w700,
+              for(ActiveAgent agent in clusterModel.cluster!.activeAgents)
+                MembersTile(
+                  title: LoanTitle(
+                    title: '${agent.firstName} ${agent.lastName}',
+                    dueText: '${agent.daysToDue} day${agent.daysToDue > 1 ? 's' : ''} to due date',
+                    dueTextColor: MoniColors.textColor2,
                   ),
+                  subtitle: Text(
+                    '${currency.format(agent.loanAmount)} Active loan',
+                    style: GoogleFonts.mulish(
+                      color: MoniColors.greenDarkest,
+                      fontSize: 15.0,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  imagePath: 'assets/halima.png',
                 ),
-                imagePath: 'assets/halima.png',
-              ),
               Container(
                 margin: const EdgeInsets.only(
                   bottom: 8.0,
@@ -118,9 +125,10 @@ class MembersScreen extends StatelessWidget {
           MoniExpansionTile(
             title: 'Inactive Loans',
             children: [
-              const MembersTile(
+              for(InActiveAgent agent in clusterModel.cluster!.inactiveAgents)
+               MembersTile(
                 title: Text(
-                  'Rebecca Funto',
+                  '${agent.firstName} ${agent.lastName}',
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 17.0,
@@ -134,7 +142,7 @@ class MembersScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                imagePath: 'assets/halima.png',
+                imagePath: agent.avatar,
               ),
               Container(
                 margin: const EdgeInsets.only(
@@ -152,6 +160,8 @@ class MembersScreen extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
 

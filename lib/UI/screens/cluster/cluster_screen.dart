@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart' show SpinKitFadingFour;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moni/Core/features/loan/provider/loan_provider.dart';
+import 'package:moni/Core/utils/currency_format.dart';
 import 'package:moni/Core/utils/network_state.dart';
 import 'package:moni/UI/screens/cluster/cluster_details_screen.dart';
 import 'package:moni/UI/screens/failure_screen.dart';
@@ -24,6 +25,8 @@ class _ClusterScreenState extends State<ClusterScreen> {
   @override
   Widget build(BuildContext context) {
     final clusterModel = context.watch<LoanProvider>();
+
+
     if(clusterModel.networkSate == NetworkState.idle) {
       return _ClusterScreen();
     } else {
@@ -43,7 +46,7 @@ class _ClusterScreenState extends State<ClusterScreen> {
           replacement: Visibility(
             visible: clusterModel.networkSate == NetworkState.failed,
             child: const FailureScreen(),
-            replacement: const NoInternetScreen(),
+            replacement: const NoInternetScreen( ),
           ),
           child: const Center(
             child: SpinKitFadingFour(
@@ -65,9 +68,11 @@ class _ClusterScreenState extends State<ClusterScreen> {
 
 class _ClusterScreen extends StatelessWidget {
 
+
   @override
   Widget build(BuildContext context) {
     final clusterModel = context.watch<LoanProvider>();
+    final cluster = clusterModel.cluster!;
     return Scaffold(
       body: DefaultTabController(
         length: 2,
@@ -97,9 +102,9 @@ class _ClusterScreen extends StatelessWidget {
                             children: [
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
+                                children:  [
                                   Text(
-                                    'Moni dreambig community',
+                                    cluster.name,
                                     style: TextStyle(
                                       fontSize: 15.0,
                                       fontWeight: FontWeight.w700,
@@ -111,7 +116,7 @@ class _ClusterScreen extends StatelessWidget {
                                   ),
                                   RepaymentWidget(
                                     title: 'Repayment rate: ',
-                                    subtitle: '60%',
+                                    subtitle: '${cluster.rate}%',
                                     color: MoniColors.secondaryBrand,
                                   ),
                                   SizedBox(
@@ -119,7 +124,7 @@ class _ClusterScreen extends StatelessWidget {
                                   ),
                                   RepaymentWidget(
                                     title: 'Repayment Day: ',
-                                    subtitle: 'Every Sunday',
+                                    subtitle: 'Every ${cluster.repaymentDay}',
                                     color: MoniColors.greenLighter,
                                   ),
                                 ],
@@ -162,7 +167,7 @@ class _ClusterScreen extends StatelessWidget {
                                   ),
                                   //TODO: DM sans does not support the naira symbol so I used mulish
                                   Text(
-                                    '₦550,000,000',
+                                    currency.format(cluster.purseBalance),
                                     style: GoogleFonts.mulish(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w700,
@@ -224,7 +229,7 @@ class _ClusterScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '₦550,000,000',
+                                currency.format(cluster.totalInterestEarned),
                                 style: GoogleFonts.mulish(
                                   fontSize: 14.0,
                                   color: MoniColors.secondaryBrand,
@@ -252,7 +257,7 @@ class _ClusterScreen extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '₦550,000,000',
+                                currency.format(cluster.totalOwedByMembers),
                                 style: GoogleFonts.mulish(
                                   fontSize: 14.0,
                                   color: Colors.white,

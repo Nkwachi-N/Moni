@@ -25,6 +25,7 @@ class LoanProvider extends ChangeNotifier{
       cluster = await _loanRepository.getClusterAgents();
       networkSate = NetworkState.idle;
     }catch(e) {
+      print(e);
       if(e is SocketException) {
         networkSate = NetworkState.noInternet;
       }else{
