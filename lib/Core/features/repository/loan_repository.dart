@@ -5,22 +5,30 @@ import 'package:http/http.dart' as http;
 import 'package:moni/Core/routes/api_routes.dart';
 
 class LoanRepository {
-  final http.Client client;
+  final http.Client _client;
 
-  LoanRepository(this.client);
+  LoanRepository(this._client);
 
   Future<Cluster> getClusterAgents() async {
-    final response = await client.get(Uri.parse(ApiRoutes.clusterAgentUrl));
 
-    if (response.statusCode == 200) {
+    try{
+      final response = await _client.get(Uri.parse(ApiRoutes.clusterAgentUrl));
+      if (response.statusCode == 200) {
 
-      return Cluster.fromJson(
-        jsonDecode(
-          response.body,
-        ),
-      );
-    } else {
-      throw Exception('Failed to load album');
+        return Cluster.fromJson(
+          jsonDecode(
+            response.body,
+          ),
+        );
+      } else {
+        throw Exception('Failed to load album');
+      }
+
+    }on Exception{
+      rethrow;
     }
+
+
+
   }
 }
