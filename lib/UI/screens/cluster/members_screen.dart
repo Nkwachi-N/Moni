@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:moni/UI/widgets/moni_expansion_tile.dart';
+import 'package:moni/UI/screens/cluster/widgets/moni_expansion_tile.dart';
+import 'package:moni/UI/utils/moni_colors.dart';
 
-import '../../Core/utils/moni_colors.dart';
-import '../widgets/members_tile.dart';
+import 'widgets/members_tile.dart';
+
 
 class MembersScreen extends StatelessWidget {
   const MembersScreen({Key? key}) : super(key: key);

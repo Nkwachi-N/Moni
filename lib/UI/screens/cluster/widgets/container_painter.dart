@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moni/Core/utils/moni_colors.dart';
+import 'package:moni/UI/utils/moni_colors.dart';
 import 'package:patterns_canvas/patterns_canvas.dart';
 
 class ContainerPatternPainter extends CustomPainter {

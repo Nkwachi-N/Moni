@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:moni/UI/utils/moni_colors.dart';
 
-import '../../Core/utils/moni_colors.dart';
 
 class RepaymentWidget extends StatelessWidget {
   final String title;

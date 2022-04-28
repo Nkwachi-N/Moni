@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:moni/Core/utils/moni_colors.dart';
-import 'package:moni/UI/screens/cluster_details_screen.dart';
-import 'package:moni/UI/screens/members_screen.dart';
-import 'package:moni/UI/widgets/container_painter.dart';
-import 'package:moni/UI/widgets/repayment_widget.dart';
+import 'package:moni/UI/screens/cluster/cluster_details_screen.dart';
+import 'package:moni/UI/utils/moni_colors.dart';
+import 'members_screen.dart';
+import 'widgets/container_painter.dart';
+import 'widgets/repayment_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+
+class ClusterScreen extends StatefulWidget {
+  const ClusterScreen({Key? key}) : super(key: key);
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _ClusterScreenState createState() => _ClusterScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen>
+class _ClusterScreenState extends State<ClusterScreen>
     with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Core/utils/moni_colors.dart';
-import 'UI/screens/home_screen.dart';
+import 'package:moni/UI/utils/moni_colors.dart';
+import 'UI/screens/cluster/cluster_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
               ), // If this is not set, then ThemeData.light().textTheme is used.
         ),
       ),
-      home: const HomeScreen(),
+      home: const ClusterScreen(),
     );
   }
 }
