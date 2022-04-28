@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 class LoanProvider extends ChangeNotifier{
   late LoanRepository _loanRepository;
-  NetworkSate networkSate = NetworkSate.idle;
+  NetworkState networkSate = NetworkState.idle;
   Cluster? cluster;
 
 
@@ -19,16 +19,16 @@ class LoanProvider extends ChangeNotifier{
 
 
   Future<void> getCluster() async {
-    networkSate = NetworkSate.loading;
+    networkSate = NetworkState.loading;
 
     try{
       cluster = await _loanRepository.getClusterAgents();
-      networkSate = NetworkSate.idle;
-    }on Exception catch(e) {
+      networkSate = NetworkState.idle;
+    }catch(e) {
       if(e is SocketException) {
-        networkSate = NetworkSate.noInternet;
+        networkSate = NetworkState.noInternet;
       }else{
-        networkSate = NetworkSate.failed;
+        networkSate = NetworkState.failed;
       }
     }
     notifyListeners();

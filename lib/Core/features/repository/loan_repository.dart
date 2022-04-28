@@ -9,22 +9,24 @@ class LoanRepository {
 
   LoanRepository(this._client);
 
-  Future<Cluster> getClusterAgents() async {
+  Future<Cluster?> getClusterAgents() async {
 
     try{
       final response = await _client.get(Uri.parse(ApiRoutes.clusterAgentUrl));
+
       if (response.statusCode == 200) {
 
         return Cluster.fromJson(
           jsonDecode(
             response.body,
-          ),
+          )['daa'],
         );
       } else {
         throw Exception('Failed to load album');
       }
 
-    }on Exception{
+    }catch(e){
+      print(e);
       rethrow;
     }
 

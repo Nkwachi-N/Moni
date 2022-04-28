@@ -1,3 +1,3 @@
-enum NetworkSate{
+enum NetworkState{
   loading,failed,noInternet,idle
 }
