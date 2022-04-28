@@ -105,13 +105,13 @@ class _ClusterScreen extends StatelessWidget {
                                 children:  [
                                   Text(
                                     cluster.name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 15.0,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8.0,
                                   ),
                                   RepaymentWidget(
@@ -119,7 +119,7 @@ class _ClusterScreen extends StatelessWidget {
                                     subtitle: '${cluster.rate}%',
                                     color: MoniColors.secondaryBrand,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8.0,
                                   ),
                                   RepaymentWidget(

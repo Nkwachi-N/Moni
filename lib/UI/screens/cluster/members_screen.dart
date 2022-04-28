@@ -129,12 +129,12 @@ class MembersScreen extends StatelessWidget {
                MembersTile(
                 title: Text(
                   '${agent.firstName} ${agent.lastName}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 17.0,
                   ),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'No active loan',
                   style: TextStyle(
                     color: MoniColors.darkLighter,
