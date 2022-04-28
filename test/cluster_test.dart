@@ -77,13 +77,8 @@ void main() {
 
       final httpResponse =  await repository.getClusterAgents();
 
-      final cluster = httpResponse[0];
 
-      expect(httpResponse.length, 1);
-
-
-
-      expect(cluster, isA<Cluster>());
+      expect(httpResponse, isA<Cluster>());
     });
 
     test('throws an exception if the http call completes with an error', () {
