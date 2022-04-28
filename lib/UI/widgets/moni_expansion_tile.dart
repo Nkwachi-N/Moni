@@ -17,7 +17,7 @@ class MoniExpansionTile extends StatefulWidget {
 
 class _MoniExpansionTileState extends State<MoniExpansionTile> {
   Icon _icon = const Icon(
-    Icons.add,
+    Icons.remove,
     key: ValueKey('add'),
   );
 
@@ -29,6 +29,8 @@ class _MoniExpansionTileState extends State<MoniExpansionTile> {
       ),
       child: ExpansionTile(
         collapsedIconColor: Colors.black.withOpacity(0.58),
+        initiallyExpanded: true,
+
         iconColor: Colors.black.withOpacity(0.58),
         textColor: MoniColors.textColor,
         trailing: AnimatedSwitcher(
